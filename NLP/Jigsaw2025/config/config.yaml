@@ -1,0 +1,27 @@
+# Model configuration
+model:
+  base_model_path: "BAAI/bge-small-en-v1.5"
+  max_seq_length: 128
+  embedding_dim: 768
+  use_fp16: true
+
+# Training configuration
+training:
+  epochs: 1
+  batch_size: 32
+  learning_rate: 2.0e-5
+  triplet_margin: 0.25
+  augmentation_factor: 2
+  subsample_fraction: 1.0
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
+
+# Data configuration
+data:
+  test_data_path: "/kaggle/input/jigsaw-agile-community-rules/test.csv"
+  output_dir: "./models/test-finetuned-bge"
+
+# Inference configuration
+inference:
+  batch_size: 64
+  distance_metric: "euclidean"
